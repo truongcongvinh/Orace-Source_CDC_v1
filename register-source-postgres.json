@@ -1,0 +1,20 @@
+{
+    "name": "postgres-source-connector",
+    "config": {
+        "connector.class": "io.debezium.connector.postgresql.PostgresConnector",
+        "tasks.max": "1",
+        "database.hostname": "postgres-db-source",    
+        "database.port": "5432",
+        "database.user": "postgres",
+        "database.password": "postgres",
+        "database.dbname": "postgres-db-source",     
+        "database.server.name": "postgres-source-server",
+        "schema.include.list": "public",
+        "table.include.list": "public.employees",
+        "plugin.name": "pgoutput",
+        "snapshot.mode": "initial",
+        "transforms": "unwrap",
+        "transforms.unwrap.type": "io.debezium.transforms.ExtractNewRecordState",
+        "transforms.unwrap.drop.tombstones": "false"
+    }
+}
